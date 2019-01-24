@@ -12,9 +12,7 @@ import javax.inject.Singleton
 @Singleton
 @Component(modules = [AndroidSupportInjectionModule::class, MainActivityModule::class])
 interface MyApplicationComponent : AndroidInjector<DaggerApplication> {
-    fun inject(myApplication: MyApplication)
     override fun inject(instance: DaggerApplication)
-
     @Component.Builder
     interface Builder {
         @BindsInstance
