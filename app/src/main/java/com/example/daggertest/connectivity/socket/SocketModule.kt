@@ -12,8 +12,7 @@ class SocketModule{
 
     @Provides @Singleton
     internal fun providesStockSocket(): Socket {
-        var stockSocket = IO.socket("https://ws-api.iextrading.com/1.0/tops")
-        return stockSocket
+        return IO.socket("https://ws-api.iextrading.com/1.0/tops")
     }
 
     @Provides @Singleton

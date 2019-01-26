@@ -1,6 +1,5 @@
 package com.example.daggertest.main
 
-import com.example.daggertest.main.MainActivity
 import dagger.Subcomponent
 import dagger.android.AndroidInjector
 
