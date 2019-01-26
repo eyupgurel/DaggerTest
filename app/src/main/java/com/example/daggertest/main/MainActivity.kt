@@ -26,6 +26,5 @@ class MainActivity : DaggerActivity() {
                     Log.d("Broadcasted message", message)
                 }
            return super.onCreateView(name, context, attrs)
-
     }
 }
