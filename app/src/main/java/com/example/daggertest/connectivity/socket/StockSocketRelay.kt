@@ -14,8 +14,9 @@ import javax.inject.Provider
 
 
 class StockSocketRelay(StockSocketProvider: Provider<Socket>) : IStockSocketRelay {
-    override val BroadcastRelay: BehaviorRelay<String> get() = BehaviorRelay.createDefault("Hello!")
+        override lateinit var broadcastRelay: BehaviorRelay<String>
         init {
+            broadcastRelay = BehaviorRelay.create()
             var onConnect = Emitter.Listener {
                 GlobalScope.launch {
                     StockSocketProvider.get().emit("subscribe", "msft,snap,fb,aig+")
@@ -23,8 +24,8 @@ class StockSocketRelay(StockSocketProvider: Provider<Socket>) : IStockSocketRela
             }
             var onMessage = Emitter.Listener { args ->
                 GlobalScope.launch {
-                    BroadcastRelay.accept(args[0].toString())
-                    Log.d("Incoming message", args[0].toString())
+                    broadcastRelay.accept(args[0].toString())
+                    //Log.d("Incoming message", args[0].toString())
                 }
             }
             var stockSocket = StockSocketProvider.get()
