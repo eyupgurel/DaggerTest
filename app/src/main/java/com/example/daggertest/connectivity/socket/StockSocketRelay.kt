@@ -4,6 +4,7 @@ import android.app.PendingIntent.getActivity
 import android.util.Log
 import android.widget.Toast
 import com.jakewharton.rxrelay2.BehaviorRelay
+import com.jakewharton.rxrelay2.ReplayRelay
 import io.socket.client.Socket
 import io.socket.emitter.Emitter
 import kotlinx.coroutines.GlobalScope
@@ -13,7 +14,7 @@ import javax.inject.Provider
 
 
 class StockSocketRelay(StockSocketProvider: Provider<Socket>) : IStockSocketRelay {
-    override val BroadcastRelay: BehaviorRelay<String> get() = BehaviorRelay.create()
+    override val BroadcastRelay: BehaviorRelay<String> get() = BehaviorRelay.createDefault("Hello!")
         init {
             var onConnect = Emitter.Listener {
                 GlobalScope.launch {
