@@ -1,4 +1,4 @@
-package com.example.daggertest.di
+package com.example.daggertest.connectivity.rest
 
 import dagger.Module
 import dagger.Provides
