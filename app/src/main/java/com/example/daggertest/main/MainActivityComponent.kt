@@ -1,4 +1,4 @@
-package com.example.daggertest.di
+package com.example.daggertest.main
 import dagger.Component
 
 

@@ -22,6 +22,7 @@ class StockSocketRelay(StockSocketProvider: Provider<Socket>) : IStockSocketRela
             }
             var onMessage = Emitter.Listener { args ->
                 GlobalScope.launch {
+                    BroadcastRelay.accept(args[0].toString())
                     Log.d("Incoming message", args[0].toString())
                 }
             }

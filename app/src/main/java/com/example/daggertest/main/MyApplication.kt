@@ -1,6 +1,4 @@
-package com.example.daggertest
-
-import com.example.daggertest.di.DaggerMyApplicationComponent
+package com.example.daggertest.main
 import dagger.android.AndroidInjector
 import dagger.android.DaggerApplication
 

@@ -1,12 +1,10 @@
-package com.example.daggertest
+package com.example.daggertest.main
 
 import android.os.Bundle
+import com.example.daggertest.R
 import com.example.daggertest.connectivity.socket.IStockSocketRelay
-import com.example.daggertest.connectivity.socket.StockSocketRelay
 import dagger.android.DaggerActivity
 import javax.inject.Inject
-import io.socket.client.Socket
-import javax.inject.Provider
 
 class MainActivity : DaggerActivity() {
     @Inject lateinit var uri: String

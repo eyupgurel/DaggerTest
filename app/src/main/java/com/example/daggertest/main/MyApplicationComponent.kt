@@ -1,4 +1,4 @@
-package com.example.daggertest.di
+package com.example.daggertest.main
 import android.app.Application
 import com.example.daggertest.connectivity.socket.SocketModule
 import com.example.daggertest.connectivity.rest.NetworkModule

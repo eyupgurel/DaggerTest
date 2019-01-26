@@ -1,5 +1,4 @@
-package com.example.daggertest.di
-import com.example.daggertest.MainActivity
+package com.example.daggertest.main
 import dagger.Binds
 import dagger.Module
 import dagger.android.AndroidInjector
