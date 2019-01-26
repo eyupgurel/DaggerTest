@@ -22,8 +22,8 @@ class MainActivity : DaggerActivity() {
 
      override fun onCreateView(name: String?, context: Context?, attrs: AttributeSet?): View? {
             stockSocketRelay.broadcastRelay.subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread()).
-                subscribe{message ->
-                    Log.d("Broadcasted message", message)
+                subscribe{stockTransaction ->
+                    Log.d("Broadcasted stock transaction: ", stockTransaction.toString())
                 }
            return super.onCreateView(name, context, attrs)
     }

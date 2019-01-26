@@ -12,7 +12,7 @@ import javax.inject.Inject
 import javax.inject.Provider
 
 class StockSocketRelay(StockSocketProvider: Provider<Socket>) : IStockSocketRelay {
-    override lateinit var broadcastRelay: BehaviorRelay<String>
+    override lateinit var broadcastRelay: BehaviorRelay<StockTransaction>
         init {
             //Log.d("happen", "broadcastRelay created")
             broadcastRelay = BehaviorRelay.create()
@@ -24,8 +24,8 @@ class StockSocketRelay(StockSocketProvider: Provider<Socket>) : IStockSocketRela
             var onMessage = Emitter.Listener { args ->
                 GlobalScope.launch {
                     val stockTransaction = Json.parse(StockTransaction.serializer(), args[0].toString())
-                    broadcastRelay.accept(args[0].toString())
-                    Log.d("Incoming message", args[0].toString())
+                    broadcastRelay.accept(stockTransaction)
+                    Log.d("Incoming message", stockTransaction.toString())
                 }
             }
             var stockSocket = StockSocketProvider.get()
